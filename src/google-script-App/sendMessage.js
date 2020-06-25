@@ -28,8 +28,8 @@ function mainPayload(body) {
 			"method": "sendMessage",//方法 method
 			"chat_id": body.message.chat.id,//群组 group 
 			"text": ''//内容 content
-}
-	return payload;
-}
+		}
+	return payload;//返回 return
+	}
 
 }
