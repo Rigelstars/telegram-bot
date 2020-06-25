@@ -20,15 +20,22 @@ function doPost(e){
 }
 
 function mainPayload(body) {
-
-	if (body.message.text) {//判断是否是文本 Is the judgment text
-		var payload = {
-			"method": "forwardMessage",//方法 method
-			"chat_id": body.message.chat.id,//群组 group 
-			"from_chat_id": body.message.chat.id,
-			"message_id": body.message.message_id
-		}
-	return payload;//返回 return
+	var payload = {
+		"method": "forwardMessage",//方法 method
+		"chat_id": body.message.chat.id,//群组 group 
+		"from_chat_id": body.message.chat.id,
+		"message_id": body.message.message_id
 	}
-
+	
+	if(body.message.text||body.message.photo||body.message.sticker||body.message.video){
+		return payload;//返回 return
+	} else {
+		payload = {
+			"method": "sendMessage",
+			"chat_id": body.message.chat.id,
+			"text": "对不起无法识别消息\n\nSorry, I can't recognize the message"
+		}
+	return payload;
+	}
+	
 }
