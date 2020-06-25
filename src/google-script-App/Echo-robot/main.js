@@ -23,9 +23,10 @@ function mainPayload(body) {
 
 	if (body.message.text) {//判断是否是文本 Is the judgment text
 		var payload = {
-			"method": "sendMessage",//方法 method
+			"method": "forwardMessage",//方法 method
 			"chat_id": body.message.chat.id,//群组 group 
-			"text": ''//内容 content
+			"from_chat_id": body.message.chat.id,
+			"message_id": body.message.message_id
 		}
 	return payload;//返回 return
 	}
