@@ -31,6 +31,7 @@ function mainPayload(body) {
 
 	if (text == '/start') {
 		payload.text = "本机器人是开源机器人\n\nThis robot is an open source machie people";
-		return payload
+		return payload;
 	}
+
 }
